@@ -1,7 +1,10 @@
 #include<stdio.h>
+#include <time.h>
 
 int main(){
 
+    clock_t start, end;
+    double elapsed;
     int i,a,n,b,n1,fee,tot;
     char ans;
 
@@ -25,10 +28,11 @@ int main(){
     char m;
     int t1,t2;
 
-    printf("=== Vehicle Parking Management System ===\n");
-    printf("Van  rate : 200 per hour\n");
-    printf("Car  rate : 100 per hour\n");
-    printf("Bike rate :  50 per hour\n");
+    printf("=== Vehicle Parking Management System  ===\n");
+    printf("================== DEMO ==================\n");
+    printf("Van  rate : 200 per second\n");
+    printf("Car  rate : 100 per second\n");
+    printf("Bike rate :  50 per second\n");
     printf("==========================================\n");
 
     while(1){
@@ -63,18 +67,11 @@ int main(){
                         printf("Its Occupied\n");
                     }else{
                         while(1){
-                            printf("Entering Time (24h, 0-23) :");
-                            scanf("%d",&t1);
-
-                            if(t1>=24||t1<0){
-                                printf("invalid time\n");
-                                continue;
-                            }else{
-                                s[n].tv=t1;
-                                printf("Setting V%d Occupied\n",n);
-                                s[n].avv=1;
-                                break;
-                            }
+                            start = clock();
+                            s[n].tv=t1;
+                            printf("Setting V%d Occupied\n",n);
+                            s[n].avv=1;
+                            break;
                         }
                         break;
                     }
@@ -109,18 +106,11 @@ int main(){
                         printf("Its Occupied\n");
                     }else{
                         while(1){
-                            printf("Entering Time (24h, 0-23) :");
-                            scanf("%d",&t1);
-
-                            if(t1>=24||t1<0){
-                                printf("invalid time\n");
-                                continue;
-                            }else{
-                                s[n].tc=t1;
-                                printf("Setting C%d Occupied\n",n);
-                                s[n].avc=1;
-                                break;
-                            }
+                            start = clock();
+                            s[n].tc=t1;
+                            printf("Setting C%d Occupied\n",n);
+                            s[n].avc=1;
+                            break;
                         }
                         break;
                     }
@@ -155,18 +145,11 @@ int main(){
                         printf("Its Occupied\n");
                     }else{
                         while(1){
-                            printf("Entering Time (24h, 0-23) :");
-                            scanf("%d",&t1);
-
-                            if(t1>=24||t1<0){
-                                printf("invalid time\n");
-                                continue;
-                            }else{
-                                s[n].tb=t1;
-                                printf("Setting B%d Occupied\n",n);
-                                s[n].avb=1;
-                                break;
-                            }
+                            start = clock();
+                            s[n].tb=t1;
+                            printf("Setting B%d Occupied\n",n);
+                            s[n].avb=1;
+                            break;
                         }
                         break;
                     }
@@ -213,21 +196,10 @@ int main(){
                     }
 
                     while(1){
-                        printf("Enter Your Exiting time (24h, 0-23) :");
-                        scanf("%d",&t2);
-
-                        if(t2>=24||t2<0){
-                            printf("invalid time\n");
-                            continue;
-                        }
-
-                        if(t2>=s[n1].tv){
-                            tot=(t2-s[n1].tv)*200;
-                        }else{
-                            tot=((24-s[n1].tv)+t2)*200;
-                        }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tv ? t2-s[n1].tv : (24-s[n1].tv)+t2);
+                        end = clock();
+                        elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+                        printf("Parked time: %.2f seconds\n", elapsed);
+                        tot = elapsed * 200;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -272,21 +244,10 @@ int main(){
                     }
 
                     while(1){
-                        printf("Enter Your Exiting time (24h, 0-23) :");
-                        scanf("%d",&t2);
-
-                        if(t2>=24||t2<0){
-                            printf("invalid time\n");
-                            continue;
-                        }
-
-                        if(t2>=s[n1].tc){
-                            tot=(t2-s[n1].tc)*100;
-                        }else{
-                            tot=((24-s[n1].tc)+t2)*100;
-                        }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tc ? t2-s[n1].tc : (24-s[n1].tc)+t2);
+                        end = clock();
+                        elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+                        printf("Parked time: %.2f seconds\n", elapsed);
+                        tot = elapsed * 100;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -331,21 +292,10 @@ int main(){
                     }
 
                     while(1){
-                        printf("Enter Your Exiting time (24h, 0-23) :");
-                        scanf("%d",&t2);
-
-                        if(t2>=24||t2<0){
-                            printf("invalid time\n");
-                            continue;
-                        }
-
-                        if(t2>=s[n1].tb){
-                            tot=(t2-s[n1].tb)*50;
-                        }else{
-                            tot=((24-s[n1].tb)+t2)*50;
-                        }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tb ? t2-s[n1].tb : (24-s[n1].tb)+t2);
+                       end = clock();
+                        elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+                        printf("Parked time: %.2f seconds\n", elapsed);
+                        tot = elapsed * 50;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
