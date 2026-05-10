@@ -1,8 +1,9 @@
 #include<stdio.h>
 
+
 int main(){
 
-    int i,a,n,b,n1,fee,tot;
+    int i,a,n,b,n1,fee,tot,d;
     char ans;
 
     struct arr1{
@@ -33,7 +34,9 @@ int main(){
 
     while(1){
 
-        printf("\nEnter(i) , Exit(o) or Press q to Quit -> ");
+        printf("\nTo Enter Your Vehicle Press i \n");
+        printf("To Exit Your Vehicle Press o \n");
+        printf("Press q to Quit -> ");
         scanf(" %c",&ans);
 
         if(ans == 'i'){
@@ -51,9 +54,13 @@ int main(){
                 }
 
                 while(1){
-                    printf("Choose Your Slot (Only number):");
-                    scanf("%d",&n);
 
+                    printf("Choose Your Slot Number:");
+                    if(scanf("%d",&n)==0){        // if letter entered scanf returns 0
+                        printf("invalid\n");
+                        scanf("%*s");             // clears bad input from buffer
+                        continue;
+                    }
                     if(n<0||n>=5){
                         printf("invalid\n");
                         continue;
@@ -63,6 +70,7 @@ int main(){
                         printf("Its Occupied\n");
                     }else{
                         while(1){
+
                             printf("Entering Time (24h, 0-23) :");
                             scanf("%d",&t1);
 
@@ -80,12 +88,12 @@ int main(){
                     }
                 }
 
-                printf("\n-- Available Van Slots --\n");
-                for(b=0;b<5;b++){
-                    if(s[b].avv==0){
-                        printf("Slot available :V%d\n",s[b].posv);
-                    }
-                }
+//                printf("\n-- Available Van Slots --\n");
+//                for(b=0;b<5;b++){
+//                    if(s[b].avv==0){
+//                        printf("Slot available :V%d\n",s[b].posv);
+//                    }
+//                }
 
             }else if(m=='c'){
 
@@ -97,9 +105,13 @@ int main(){
                 }
 
                 while(1){
-                    printf("Choose Your Slot (Only number):");
-                    scanf("%d",&n);
 
+                    printf("Choose Your Slot Number:");
+                    if(scanf("%d",&n)==0){        // if letter entered scanf returns 0
+                        printf("invalid\n");
+                        scanf("%*s");             // clears bad input from buffer
+                        continue;
+                    }
                     if(n<0||n>=5){
                         printf("invalid\n");
                         continue;
@@ -126,12 +138,12 @@ int main(){
                     }
                 }
 
-                printf("\n-- Available Car Slots --\n");
-                for(b=0;b<5;b++){
-                    if(s[b].avc==0){
-                        printf("Slot available :C%d\n",s[b].posc);
-                    }
-                }
+//                printf("\n-- Available Car Slots --\n");
+//                for(b=0;b<5;b++){
+//                    if(s[b].avc==0){
+//                        printf("Slot available :C%d\n",s[b].posc);
+//                    }
+//                }
 
             }else if(m=='b'){
 
@@ -143,8 +155,13 @@ int main(){
                 }
 
                 while(1){
-                    printf("Choose Your Slot (Only number):");
-                    scanf("%d",&n);
+
+                    printf("Choose Your Slot Number:");
+                    if(scanf("%d",&n)==0){        // if letter entered scanf returns 0
+                        printf("invalid\n");
+                        scanf("%*s");             // clears bad input from buffer
+                        continue;
+                    }
 
                     if(n<0||n>=5){
                         printf("invalid\n");
@@ -172,12 +189,12 @@ int main(){
                     }
                 }
 
-                printf("\n-- Available Bike Slots --\n");
-                for(b=0;b<5;b++){
-                    if(s[b].avb==0){
-                        printf("Slot available :B%d\n",s[b].posb);
-                    }
-                }
+//                printf("\n-- Available Bike Slots --\n");
+//                for(b=0;b<5;b++){
+//                    if(s[b].avb==0){
+//                        printf("Slot available :B%d\n",s[b].posb);
+//                    }
+//                }
 
             }else{
                 printf("Invalid vehicle type\n");
@@ -203,7 +220,11 @@ int main(){
                 }else{
                     while(1){
                         printf("Enter Your Vehicle Slot Number :");
-                        scanf("%d",&n1);
+                        if(scanf("%d",&n1)==0){
+                            printf("invalid\n");
+                            scanf("%*s");
+                            continue;
+                        }
 
                         if(n1>=0&&n1<5&&s[n1].avv==1){
                             break;
@@ -222,12 +243,12 @@ int main(){
                         }
 
                         if(t2>=s[n1].tv){
-                            tot=(t2-s[n1].tv)*200;
+                            d=(t2-s[n1].tv);
                         }else{
-                            tot=((24-s[n1].tv)+t2)*200;
+                            d=((24-s[n1].tv)+t2);
                         }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tv ? t2-s[n1].tv : (24-s[n1].tv)+t2);
+                        tot = d*200;
+                        printf("Duration : %d hour(s)\n", d);
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -262,7 +283,11 @@ int main(){
                 }else{
                     while(1){
                         printf("Enter Your Vehicle Slot Number :");
-                        scanf("%d",&n1);
+                        if(scanf("%d",&n1)==0){
+                            printf("invalid\n");
+                            scanf("%*s");
+                            continue;
+                        }
 
                         if(n1>=0&&n1<5&&s[n1].avc==1){
                             break;
@@ -281,12 +306,12 @@ int main(){
                         }
 
                         if(t2>=s[n1].tc){
-                            tot=(t2-s[n1].tc)*100;
+                            d=(t2-s[n1].tc);
                         }else{
-                            tot=((24-s[n1].tc)+t2)*100;
+                            d=((24-s[n1].tc)+t2);
                         }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tc ? t2-s[n1].tc : (24-s[n1].tc)+t2);
+                        tot = d * 100;
+                        printf("Duration : %d hour(s)\n", d);
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -321,7 +346,11 @@ int main(){
                 }else{
                     while(1){
                         printf("Enter Your Vehicle Slot Number :");
-                        scanf("%d",&n1);
+                        if(scanf("%d",&n1)==0){
+                            printf("invalid\n");
+                            scanf("%*s");
+                            continue;
+                        }
 
                         if(n1>=0&&n1<5&&s[n1].avb==1){
                             break;
@@ -340,12 +369,12 @@ int main(){
                         }
 
                         if(t2>=s[n1].tb){
-                            tot=(t2-s[n1].tb)*50;
+                            d=(t2-s[n1].tb);
                         }else{
-                            tot=((24-s[n1].tb)+t2)*50;
+                            d=((24-s[n1].tb)+t2);
                         }
-
-                        printf("Duration : %d hour(s)\n", t2>=s[n1].tb ? t2-s[n1].tb : (24-s[n1].tb)+t2);
+                        tot = d*50;
+                        printf("Duration : %d hour(s)\n",d);
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -369,7 +398,7 @@ int main(){
             }
 
         }else if(ans == 'q'){
-            printf("Goodbye!\n");
+            printf("Thank You!\n");
             break;
         }else{
             printf("invalid option\n");
