@@ -89,7 +89,7 @@ int main(){
 //                    }
 //                }
 
-            }else if(m=='c'){
+            }else if(m=='c'|| m=='C'){
 
                 printf("\n-- Available Car Slots --\n");
                 for(a=0;a<5;a++){
