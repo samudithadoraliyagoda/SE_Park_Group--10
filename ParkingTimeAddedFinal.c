@@ -217,7 +217,8 @@ int main(){
                         end = clock();
                         elapsed = (double)(end - start) / CLOCKS_PER_SEC;
                         printf("Parked time: %.2f seconds\n", elapsed);
-                        tot = elapsed * 200;
+                        int int_elapsed = (int)elapsed;
+                        tot = int_elapsed * 200;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -269,7 +270,8 @@ int main(){
                         end = clock();
                         elapsed = (double)(end - start) / CLOCKS_PER_SEC;
                         printf("Parked time: %.2f seconds\n", elapsed);
-                        tot = elapsed * 100;
+                        int int_elapsed = (int)elapsed;
+                        tot = int_elapsed * 100;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
@@ -321,7 +323,8 @@ int main(){
                        end = clock();
                         elapsed = (double)(end - start) / CLOCKS_PER_SEC;
                         printf("Parked time: %.2f seconds\n", elapsed);
-                        tot = elapsed * 50;
+                        int int_elapsed = (int)elapsed;
+                        tot = int_elapsed * 50;
                         printf("Your fees : %d\n",tot);
 
                         while(1){
