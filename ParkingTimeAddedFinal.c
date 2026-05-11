@@ -29,9 +29,9 @@ int main(){
 
     printf("=== Vehicle Parking Management System  ===\n");
     printf("================== DEMO ==================\n");
-    printf("Van  rate : 200 per second\n");
-    printf("Car  rate : 100 per second\n");
-    printf("Bike rate :  50 per second\n");
+    printf("        Van  rate : 200 per second\n");
+    printf("        Car  rate : 100 per second\n");
+    printf("        Bike rate :  50 per second\n");
     printf("==========================================\n");
 
     while(1){
@@ -51,7 +51,7 @@ int main(){
                 printf("\n-- Available Van Slots --\n");
                 for(a=0;a<5;a++){
                     if(s[a].avv==0){
-                        printf("Slot available :V%d\n",s[a].posv);
+                        printf("Slot available : V%d\n",s[a].posv);
                     }
                 }
 
@@ -94,7 +94,7 @@ int main(){
                 printf("\n-- Available Car Slots --\n");
                 for(a=0;a<5;a++){
                     if(s[a].avc==0){
-                        printf("Slot available :C%d\n",s[a].posc);
+                        printf("Slot available : C%d\n",s[a].posc);
                     }
                 }
 
@@ -115,7 +115,7 @@ int main(){
                         printf("-- Its Occupied --\n");
                     }else{
                         while(1){
-                            start = clock();
+                            start = clock();      // to add dynamic time
                             s[n].tc=t1;
                             printf("-- Setting C%d Occupied --\n",n);
                             s[n].avc=1;
@@ -137,7 +137,7 @@ int main(){
                 printf("\n-- Available Bike Slots --\n");
                 for(a=0;a<5;a++){
                     if(s[a].avb==0){
-                        printf("Slot available :B%d\n",s[a].posb);
+                        printf("Slot available : B%d\n",s[a].posb);
                     }
                 }
 
